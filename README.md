@@ -50,16 +50,17 @@ python secure_server.py
 ```
 ## Key Security Features
 ### Secure Server (secure_server.py)
-#### Feature	                      Implementation
-HMAC-SHA256	                   hmac.new(key, message, hashlib.sha256)
-Key Rotation	                Auto-rotates keys every 90 days
-Input Validation	             Blocks malformed messages (e.g., &admin=true)
-Constant-Time Compare	       hmac.compare_digest() prevents timing attacks
+|Feature	     |Implementation                               |
+|----------------|---------------------------------------------|       
+|HMAC-SHA256	 |hmac.new(key, message, hashlib.sha256)       |
+|Input Validation|Blocks malformed messages (e.g., &admin=true)|
+
 
 ## Vulnerabilities Addressed
-#### Attack Type	      Vulnerable Code	         Secure Fix
-Length Extension	      MD5(secret + message)	   HMAC nested hashing
-Timing Attacks	         mac == expected_mac	      hmac.compare_digest()
+|Attack Type	 |Vulnerable Code      |Secure Fix           |
+|----------------|---------------------|---------------------|    	         
+|Length Extension|MD5(secret + message)|HMAC nested hashing  |
+|Timing Attacks	 |mac == expected_mac  |hmac.compare_digest()|
 
 
 ## References
